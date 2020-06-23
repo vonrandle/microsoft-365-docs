@@ -29,7 +29,7 @@ For a user's mail, calendar, and other items, a retention policy is applied at t
 
 For a public folder, a retention policy is applied at the folder level, not the mailbox level. 
 
-Both a mailbox and a public folder use the Recoverable Items folder to retain items. Only people who have been assigned eDiscovery permissions can view items in another user's Recoverable Items folder.
+Both a mailbox and a public folder use the Recoverable Items (located in Deleted Items folder) folder to retain items. Only people who have been assigned eDiscovery permissions can view items in another user's Recoverable Items folder.
   
 When a person deletes a message in a folder other than the Deleted Items folder, by default, the message moves to the Deleted Items folder. When a person deletes an item in the Deleted Items folder, the message is moved to the Recoverable Items folder. However, a user can soft-delete an item (SHIFT+DELETE) in any folder, which bypasses the Deleted Items folder and moves the item directly to the Recoverable Items folder.
   
@@ -61,13 +61,14 @@ When the retention settings are retain-only, or delete-only, the contents paths 
 
 1. **If the item is not deleted** during the configured period: At the end of the configured period in the retention policy, the item is moved to the Recoverable items folder. 
 
-2. **If the item is deleted** during the configured period: The item is immediately moved to the Recoverable items folder. If a user deletes the item from there or empties the Recoverable items folder, the item is permanently deleted. Otherwise, the item is permanently deleted after being in the Recoverable items folder for 14 days. 
+2. **If the item is deleted** during the configured period: The item is immediately moved to the Recoverable Items folder. If a user deletes the item from there or empties the Recoverable items folder, the item is permanently deleted. Otherwise, the item is permanently deleted after being in the Recoverable items folder for 14 days. 
 
 ## Excluding specific types of Exchange items from a retention policy
 
 By using PowerShell, you can exclude specific types of Exchange items from a retention policy. For example, you can exclude voicemail messages, IM conversations, and other Skype for Business Online content in mailboxes. You can also exclude calendar, note, and task items. This capability is available only by using PowerShell; it's not available when you create a retention policy by using the wizard in the Microsoft 365 compliance center.
   
 To exclude your selected types for Exchange items in a retention policy, use the  `ExcludedItemClasses` parameter with the  `New-RetentionComplianceRule` and  `Set-RetentionComplianceRule` cmdlets.
+Link to https://docs.microsoft.com/en-us/powershell/module/exchange/new-retentioncompliancerule?view=exchange-ps
 
 
 ### When a user leaves the organization 
@@ -85,3 +86,4 @@ For the **Choose locations** page of the wizard, select one of the following opt
 - **Let me choose specific locations** > **Exchange email**, **Exchange public folders**, and **Office 365 groups**.
 
 Even though a Microsoft 365 group has an Exchange mailbox, a retention policy that includes the entire **Exchange email** location won't include content in Microsoft 365 group mailboxes. To retain content in these mailboxes, select the **Office 365 groups** location.
+Suggest adding screenshots of the policy fly out to help show what 'location' and 'status' button need to be activated here otherwise this reads as if you alrady know everything this is to knoe about rentention polices in Exchange.
